@@ -1,5 +1,32 @@
 {% extends 'layout.html' %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
-    
+<main class="p-5">
+    <div class="mb-3" data-bs-theme="dark">
+        <label class="form-label text-white">Search:</label>
+        <input type="text" class="form-control text-white" placeholder="Search people...">
+    </div>
+    <table class="table table-striped text-white" data-bs-theme="dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Age</th>
+                <th scope="col">Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in people %}
+                <tr>
+                    <th scope="row">{{ person.id }}</th>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.email }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.salary }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
 {% endblock %}

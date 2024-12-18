@@ -1,3 +1,3 @@
 #!/run/current-system/sw/bin/bash
 
-echo "asd123"
+docker build -t alpine-py ./backend/
