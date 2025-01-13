@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: py-backand
+  namespace: "default"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: py-backand
+  template:
+    metadata:
+      labels:
+        app: py-backand
+    spec:
+      containers:
+      - name: py-backand
+        image: alpine-py
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "2"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DB_NAME
+          value: "people"
+        - name: DB_USER
+          value: "admin"
+        - name: DB_PASSWORD
+          value: "password"
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_HOST
+          value: "postgres-svc"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: py-backand-svc
+  namespace: "default"
+spec:
+  type: LoadBalancer
+  selector:
+    app: py-backand
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+
+
+

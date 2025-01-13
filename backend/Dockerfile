@@ -3,9 +3,9 @@ FROM python:3.11.11-alpine3.21
 RUN apk update
 RUN apk add bash
 
-RUN adduser -S server 
-RUN passwd
-USER server
+# RUN adduser -S server 
+# RUN passwd
+# USER server
 
 WORKDIR /app
 

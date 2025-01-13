@@ -2,18 +2,25 @@
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
 <main class="p-5">
-    <div class="mb-3" data-bs-theme="dark">
-        <label class="form-label text-white">Search:</label>
-        <input type="text" class="form-control text-white" placeholder="Search people...">
+    <div class="p-5">
+        <div class="input-group input-group-lg pb-3" data-bs-theme="dark">
+            <span class="input-group-text">Search:</span>
+            <input type="text" class="form-control">
+        </div>
+        <div class="input-group mb-3" data-bs-theme="dark">
+            <input type="text" class="form-control" placeholder="Recipient's email">
+            <span class="input-group-text">@example.com</span>
+        </div>
     </div>
+      
     <table class="table table-striped text-white" data-bs-theme="dark">
         <thead>
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
-                <th scope="col">Email</th>
+                <!-- <th scope="col">Email</th>
                 <th scope="col">Age</th>
-                <th scope="col">Salary</th>
+                <th scope="col">Salary</th> -->
             </tr>
         </thead>
         <tbody>
@@ -21,9 +28,9 @@
                 <tr>
                     <th scope="row">{{ person.id }}</th>
                     <td>{{ person.name }}</td>
-                    <td>{{ person.email }}</td>
+                    <!-- <td>{{ person.email }}</td>
                     <td>{{ person.age }}</td>
-                    <td>{{ person.salary }}</td>
+                    <td>{{ person.salary }}</td> -->
                 </tr>
             {% endfor %}
         </tbody>
